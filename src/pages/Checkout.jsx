@@ -25,9 +25,9 @@ const Checkout = () => {
     setBoxInfo({ show: true, title, message });
   };
 
-  const navigateTo = ()=> {
-    navigate('/')
-  }
+  const navigateTo = () => {
+    navigate('/');
+  };
 
   const submitForm = async data => {
     const param = { data: data };
@@ -97,18 +97,16 @@ const Checkout = () => {
                         <p className="text-slate-700 font-medium">{item.qty} x</p>
                       </div>
                     </div>
-                    <div className="flex-1 flex gap-8">
-                      <div className="flex-1 flex justify-between">
-                        <div className="text-left">
-                          <span className="text-[10px] text-slate-300 line-through">
-                            ${formatPrice(item.product.origin_price)}
-                          </span>
-                          <p className="text-slate-700 font-medium">${formatPrice(item.product.price)}</p>
-                        </div>
-                        <div className="text-right">
-                          <span className="text-[10px] text-transparent">0</span>
-                          <p className="text-slate-700 font-medium">${formatPrice(item.final_total)}</p>
-                        </div>
+                    <div className="flex-none md:flex-1 flex justify-between">
+                      <div className="text-right md:text-left">
+                        <span className="text-[10px] text-slate-300 line-through">
+                          ${formatPrice(item.product.origin_price)}
+                        </span>
+                        <p className="text-slate-700 font-medium">${formatPrice(item.product.price)}</p>
+                      </div>
+                      <div className="hidden md:block text-right">
+                        <span className="text-[10px] text-transparent">0</span>
+                        <p className="text-slate-700 font-medium">${formatPrice(item.final_total)}</p>
                       </div>
                     </div>
                   </div>
@@ -141,7 +139,7 @@ const Checkout = () => {
               客戶資訊
             </h2>
             <form onSubmit={handleSubmit(submitForm)} className="w-full border-red mx-auto">
-              <div className="flex flex-col gap-1 w-sm md:w-md mx-auto mb-3 ">
+              <div className="flex flex-col gap-1 w-full md:w-md mx-auto mb-3 ">
                 <div className="flex items-end justify-between">
                   <label htmlFor="name" className="text-gray-500">
                     姓名
@@ -159,7 +157,7 @@ const Checkout = () => {
                   }}
                 />
               </div>
-              <div className="flex flex-col gap-1 w-sm md:w-md mx-auto mb-3 ">
+              <div className="flex flex-col gap-1 w-full md:w-md  mx-auto mb-3 ">
                 <div className="flex items-end justify-between">
                   <label htmlFor="email" className="text-gray-500">
                     Email
@@ -181,7 +179,7 @@ const Checkout = () => {
                   }}
                 />
               </div>
-              <div className="flex flex-col gap-1 w-sm md:w-md mx-auto mb-3 ">
+              <div className="flex flex-col gap-1 w-full md:w-md  mx-auto mb-3 ">
                 <div className="flex items-end justify-between">
                   <label htmlFor="tel" className="text-gray-500">
                     電話
@@ -202,7 +200,7 @@ const Checkout = () => {
                   }}
                 />
               </div>
-              <div className="flex flex-col gap-1 w-sm md:w-md mx-auto mb-3 ">
+              <div className="flex flex-col gap-1 w-full md:w-md  mx-auto mb-3 ">
                 <div className="flex items-end justify-between">
                   <label htmlFor="address" className="text-gray-500">
                     地址
@@ -224,7 +222,7 @@ const Checkout = () => {
                   }}
                 />
               </div>
-              <div className="flex flex-col gap-1 w-sm md:w-md mx-auto mb-10 ">
+              <div className="flex flex-col gap-1 w-full md:w-md mx-auto mb-10 ">
                 <div className="flex items-center justify-between">
                   <label htmlFor="message" className="text-gray-500">
                     留言
@@ -238,7 +236,7 @@ const Checkout = () => {
                 />
               </div>
               <button
-                className="w-full py-5 bg-[#5d6a80] text-white rounded-full hover:bg-[#242a36] transition-all shadow-lg font-medium tracking-widest cursor-pointer disabled:cursor-not-allowed disabled:pointer-event-none disabled:hover:bg-[#5d6a80]"
+                className="block w-full md:w-md mx-auto py-5 bg-[#5d6a80] text-white rounded-full hover:bg-[#242a36] transition-all shadow-lg font-medium tracking-widest cursor-pointer disabled:cursor-not-allowed disabled:pointer-event-none disabled:hover:bg-[#5d6a80]"
                 disabled={!isValid}
               >
                 前往付款
@@ -255,7 +253,9 @@ const Checkout = () => {
           </div>
         </div>
       </div>
-      {boxInfo.show && <MessageBox title={boxInfo.title} message={boxInfo.message} setBoxInfo={setBoxInfo} navigateTo={navigateTo}/>}
+      {boxInfo.show && (
+        <MessageBox title={boxInfo.title} message={boxInfo.message} setBoxInfo={setBoxInfo} navigateTo={navigateTo} />
+      )}
     </>
   );
 };
