@@ -80,10 +80,10 @@ const Checkout = () => {
           </div>
 
           {data.carts?.length > 0 ? (
-            <div className="mt-12 bg-white rounded-3xl p-8 shadow-sm">
+            <div className="mt-12 bg-white rounded-3xl p-4 md:p-8 shadow-sm">
               {data.carts.map(item => {
                 return (
-                  <div key={item.id} className="flex gap-5 mb-3">
+                  <div key={item.id} className="flex gap-4 md:gap-5 mb-3">
                     <div className="hidden md:block w-15 h-15 rounded-2xl overflow-hidden flex-shrink-0 bg-gray-50">
                       <img src={item.product.imageUrl} className="w-full h-full object-cover" />
                     </div>
@@ -94,7 +94,7 @@ const Checkout = () => {
                       </div>
                       <div className="text-right">
                         <span className="text-[10px] text-transparent">0</span>
-                        <p className="text-slate-700 font-medium">{item.qty} x</p>
+                        <p className="text-slate-700 font-medium">{item.qty}x</p>
                       </div>
                     </div>
                     <div className="flex-none md:flex-1 flex justify-between">
