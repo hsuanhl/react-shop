@@ -81,7 +81,6 @@ const Home = () => {
           {bannerSlides.map(slide => (
             <SwiperSlide key={slide.id}>
               <div className="relative w-full h-full flex items-center justify-center">
-                {/* 背景圖片：加入初始縮放動畫 */}
                 <div className="absolute inset-0 overflow-hidden">
                   <img
                     src={slide.image}
@@ -89,8 +88,6 @@ const Home = () => {
                     alt={slide.title}
                   />
                 </div>
-
-                {/* 文案內容 */}
                 <div className="relative text-center text-white px-4">
                   <span className="uppercase tracking-[0.4em] text-xs md:text-sm mb-6 block animate-fadeInUp">
                     {slide.subtitle}

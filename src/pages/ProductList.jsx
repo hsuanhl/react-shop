@@ -123,7 +123,6 @@ const ProductList = () => {
                   <tr>
                     <td colSpan="7" className="py-20 text-center">
                       <div className="flex flex-col items-center gap-3">
-                        {/* <img src={loading} alt="loading" className="w-12 h-12 animate-spin" /> */}
                         <p className="text-slate-400">資料載入中...</p>
                       </div>
                     </td>
